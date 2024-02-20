@@ -25,7 +25,7 @@ export default function Inicio({navigation}) {
                        <Text> </Text> 
                        <Boton2 
                        text = '1er Semestre'
-                       onPress = { () => {navigation.navigate('Semestre')}}
+                       onPress = { () => {navigation.navigate('Materia')}}
                        />
                     </View>
                 </View>

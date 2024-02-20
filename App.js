@@ -8,6 +8,9 @@ import Semestre5 from './src/screens/Semestre5/Semestre5';
 import Semestre6 from './src/screens/Semestre6/Semestre6';
 import DetailsScreen from './src/screens/DetailsScreen';
 import Inicio from './src/screens/Inicio';
+import Materia from './src/screens/Materia';
+import Estado from './src/screens/Semestre1/Materias/Estado';
+import Semestre1 from './src/screens/Semestre1/Semestre1';
 
 
 const Stack = createNativeStackNavigator();
@@ -21,9 +24,10 @@ function App() {
        <Stack.Screen name="Inicio" component={Inicio} options={{title: 'Inicio',headerStyle:{backgroundColor:'#0C2566' },headerTintColor:'#fff',}}/>
        
         <Stack.Group> 
-        <Stack.Screen name="Semestre" component={Semestre} options={{title: '1er Semestre',headerStyle:{backgroundColor:'#0C2566' },headerTintColor:'#fff'}}/>
+        <Stack.Screen name="Semestre" component={Semestre1} options={{title: 'Economia y Mercado',headerStyle:{backgroundColor:'#0C2566' },headerTintColor:'#fff'}}/>
         <Stack.Screen name="DetailsScreen" component={DetailsScreen} options={{title: 'Detalles', headerStyle:{backgroundColor:'#0C2566'}, headerTintColor:'#fff'}}/>
-        
+        <Stack.Screen name="Materia" component={Materia} options={{title: 'Materia', headerStyle:{backgroundColor:'#0C2566'}, headerTintColor:'#fff'}}/>
+        <Stack.Screen name="Estado" component={Estado} options={{title: 'Estado y Sociedad', headerStyle:{backgroundColor:'#0C2566'}, headerTintColor:'#fff'}}/>
         </Stack.Group>         
         
         <Stack.Group>
@@ -46,7 +50,7 @@ function App() {
         <Stack.Screen name="Semestre6" component={Semestre6} options={{title: '6to Semestre',headerStyle:{backgroundColor:'#0C2566' },headerTintColor:'#fff',}}/>
         </Stack.Group>
 
-       
+        
       </Stack.Navigator>
     
     </NavigationContainer>

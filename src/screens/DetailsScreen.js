@@ -1,28 +1,38 @@
 import React from "react";
-import {Text,View,Linking } from "react-native";
+import { useState, useEffect } from "react";
+import { Text, View, Linking } from "react-native";
 
 
 
-const DetailsScreen = ({ route}) => {
+const DetailsScreen = ({ route }) => {
     //Obtener los parametros de la pantalla Semestre
-    const {itemId, itemTitle,itemDesc,webLink} = route.params;
+    const { data } = route.params;
+    // console.log(JSON.parse(data));
+    //const {item} = route.params;
+
+    const [dataSemestre, setDataSemestre] = useState({})
+
+    useEffect(() => {
+        setDataSemestre(JSON.parse(data))
+    }, [])
+
 
     const handleOpenLink = async () => {
         // funcion que abre el enlace en el navegador del dispositivo
-        await Linking.openURL(webLink);
+        await Linking.openURL(dataSemestre.webLink);
 
     };
 
     return (
         <View>
-            <Text>Item ID: {itemId}</Text>
-            <Text>Item Title: {itemTitle}</Text>
-            <Text>Item Description: {itemDesc}</Text>
-            <Text>Enlace : {webLink}</Text>
-            <Text onPress={handleOpenLink} style={{color: 'blue'}}> 
+            <Text>ID: {dataSemestre.id}</Text>
+            <Text>Titulo: {dataSemestre.tittle}</Text>
+            <Text>Descripcion: {dataSemestre.descripcion}</Text>
+            <Text>Enlace : {dataSemestre.webLink}</Text>
+            <Text onPress={handleOpenLink} style={{ color: 'blue' }}>
                 Abrir enlace en el navegador
-                </Text>
-            
+            </Text>
+
         </View>
     );
 
